@@ -1,4 +1,4 @@
-package net.asifhossain.kotlinforjavadev.kotlin
+package net.asifhossain.kotlinforjavadev
 
 class Person(val firstName: String, val lastName: String)
 

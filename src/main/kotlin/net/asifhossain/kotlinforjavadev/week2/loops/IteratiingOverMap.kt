@@ -1,4 +1,4 @@
-package net.asifhossain.kotlinforjavadev.kotlin.loops
+package net.asifhossain.kotlinforjavadev.week2.loops
 
 fun main() {
     val map = mapOf(
