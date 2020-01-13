@@ -1,4 +1,4 @@
-package net.asifhossain.kotlinforjavadev.kotlin
+package net.asifhossain.kotlinforjavadev.kotlin.loops
 
 fun main() {
     val list = listOf("a", "b", "c")
