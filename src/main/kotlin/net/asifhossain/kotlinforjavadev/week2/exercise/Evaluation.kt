@@ -1,29 +1,14 @@
-package net.asifhossain.kotlinforjavadev.week2.exercise;
+package net.asifhossain.kotlinforjavadev.week2.exercise
+
+import kotlin.math.min
 
 data class Evaluation(val rightPosition: Int, val wrongPosition: Int)
 
 fun evaluateGuess(secret: String, guess: String): Evaluation {
 
-    var rightPosition = 0;
-    var wrongPosition = 0;
-    val secretChars = secret.toCharArray()
-    val guessChars = guess.toCharArray()
-    for (i in guessChars.indices) {
-        if (guessChars[i] == secretChars[i]) {
-            rightPosition++
-            secretChars[i] = 'G'
-            guessChars[i] = 'G'
-        }
-    }
-
-    for (i in guessChars.indices) {
-        if (guessChars[i] != 'G' && secretChars.contains(guessChars[i])) {
-            wrongPosition++
-            secretChars[secretChars.indexOf(guessChars[i])] = 'G'
-        }
-    }
-
-    return Evaluation(rightPosition = rightPosition, wrongPosition = wrongPosition)
+    val rightPositions = secret.zip(guess).count { it.first == it.second }
+    val commonLetters = "ABCDEF".sumBy { ch -> min(secret.count { it == ch }, guess.count { it == ch }) }
+    return Evaluation(rightPosition = rightPositions, wrongPosition = commonLetters - rightPositions)
 }
 
 fun main() {
